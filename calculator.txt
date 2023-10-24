@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: rgba(0, 255, 255, 0.767);
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            text-align: center;
+            max-width: 300px;
+            max-height: 500px;
+            border-color: gray;
+            border-radius: 5px;
+            background-color: rgb(0, 0, 0);
+            margin: 0 auto;
+        }
+        .int{
+            padding-top: 10px;
+        }
+        .input{
+            font-size: 20px;
+            text-align: right;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: rgb(214, 240, 175);
+        }
+        .button{
+            padding: 10px;
+            margin: 8px;
+            width: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 30%;
+            background-color: yellowgreen;   
+        }
+        #opbutton{
+            padding: 10px;
+            margin: 8px;
+            width: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 30%;
+            background-color: orange;
+        }
+        #cbutton{
+            padding: 10px;
+            margin: 8px;
+            width: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 30%;
+            background-color: rgb(102, 255, 0);
+        }
+        #equle{
+            padding: 10px;
+            margin: 10px;
+            width: 280px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .button:hover{
+            background-color: rgb(83, 185, 15);
+        }
+        #opbutton:hover{
+            background-color: rgb(255, 102, 0);
+        }
+        #cbutton:hover{
+            background-color: rgb(22, 107, 4);
+        }
+        #equle:hover{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Calculator</h1>
+    <div class="container">
+        <div >
+            <p class="int">
+                <input type="text" name="text" class="input" placeholder="0">
+            </p>
+        </div>
+        <div class="line1">
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button" id="opbutton">+</button>
+        </div>
+        <div class="line2">
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button" id="opbutton">-</button>
+        </div>
+        <div class="line3">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button" id="opbutton">*</button>
+        </div>
+        <div class="line4">
+            <button class="button">.</button>
+            <button class="button">0</button>
+            <button class="button" id="cbutton">C</button>
+            <button class="button" id="opbutton">/</button>
+        </div>
+        <div class="line5">
+            <button class="button" id ="equle">=</button>
+        </div>
+    </div>
+    <script>
+        let string ="";
+    let buttons = document.querySelectorAll('.button');
+    Array.from(buttons).forEach((button)=>{
+        button.addEventListener('click', (e)=>{
+            if(e.target.innerHTML == '='){
+                string = eval(string);
+                document.querySelector('input').value = string;
+            }
+            else if(e.target.innerHTML == 'C'){
+                string = "";
+                document.querySelector('input').value = string;
+            }
+            else{
+            console.log(e.target)
+            string = string + e.target.innerHTML;
+            document.querySelector('input').value = string;
+            }
+        })
+    })
+    </script>
+</body>
+</html>
